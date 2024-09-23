@@ -4,65 +4,57 @@
     {
         static void Main(string[] args)
         {
-            int stock1 = 5; // Valeur fictive pour test
-            int stock2 = 2; // Valeur fictive pour test
-            int stock3 = 0; // Valeur fictive pour test
+            int stock1 = 0;
+            int stock2 = 2;
+            int stock3 = 3;
             int choix;
 
-            Console.WriteLine("Veuillez sélectionner une boisson :");
-            Console.WriteLine("1. Eau");
-            Console.WriteLine("2. Soda");
-            Console.WriteLine("3. Orangeade");
-
-            if (int.TryParse(Console.ReadLine(), out choix))
+            do
             {
-                switch (choix)
+                Console.WriteLine("Choisissez une boisson. Boisson1: 1, Boisson2: 2, Boisson3: 3, FINIR : 4");
+                choix = int.Parse(Console.ReadLine());
+
+                if (choix == 1)
                 {
-                    case 1:
-                        if (stock1 != 0)
-                        {
-                            Console.WriteLine("Voici votre eau");
-                            stock1--;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sold out!");
-                        }
-                        break;
-
-                    case 2:
-                        if (stock2 != 0)
-                        {
-                            Console.WriteLine("Voici votre soda");
-                            stock2--;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sold out!");
-                        }
-                        break;
-
-                    case 3:
-                        if (stock3 != 0)
-                        {
-                            Console.WriteLine("Voici votre orangeade");
-                            stock3--;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Sold out!");
-                        }
-                        break;
-
-                    default:
-                        Console.WriteLine("Choix indisponible");
-                        break;
+                    if (stock1 > 0)
+                    {
+                        Console.WriteLine("Voici votre boisson1, santé!");
+                        stock1--;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Plus de boisson1");
+                    }
                 }
-            }
-            else
-            {
-                Console.WriteLine("Entrée invalide");
-            }
+                else if (choix == 2)
+                {
+                    if (stock2 > 0)
+                    {
+                        Console.WriteLine("Voici votre boisson2, santé!");
+                        stock2--;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Plus de boisson2");
+                    }
+                }
+                else if (choix == 3)
+                {
+                    if (stock3 > 0)
+                    {
+                        Console.WriteLine("Voici votre boisson3, santé!");
+                        stock3--;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Plus de boisson3");
+                    }
+                }
+
+            } while ((stock1 + stock2 + stock3 > 0) && (choix != 4));
+
+            Console.WriteLine("Merci d'utiliser distributeur 3000!");
+
         }
     }
     
